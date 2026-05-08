@@ -1,0 +1,24 @@
+services:
+  nemesis:
+    build: .
+    container_name: nemesis
+    user: "1000:1000"
+    ports:
+      - "3000:3000"
+    environment:
+      # Adjust the environment, port, CORS, database path, and dataset directory as needed
+      # Default configuration (can be overridden by .env file)
+      - NODE_ENV=production
+      - PORT=3000
+      - CORS_ORIGIN=*
+      - SQLITE_PATH=data/dashboard.sqlite
+      - AUDIT_DATASET_DIR=dataset
+      - GEO_ROOT_PATH=seed/geo
+    volumes:
+      # Map the data folder (SQLite DB) to persist data
+      - ./data:/app/data
+      # Map the dataset folder to allow dynamic database compilation
+      - ./dataset:/app/dataset
+      # Map the logs folder to persist rotating logs outside the container
+      - ./logs:/app/logs
+    restart: unless-stopped
