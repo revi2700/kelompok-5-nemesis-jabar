@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+dist-ssr/
+
+# Runtime Data (SQLite & JSON Datasets)
+data/*
+!data/patch-v1-to-v2.sql
+
+dataset/
+backend/data/
+backend/dataset/
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev.log
+
+# Caching & V8 Runtime
+.eslintcache
+*.tsbuildinfo
+.vite
+
+# macOS & OS Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
